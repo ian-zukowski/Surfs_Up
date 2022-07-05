@@ -28,15 +28,15 @@ For each of the analyses provided, refer to the underlying Figures to view the d
 ![ian-zukowski](Resources/Fig1.png)
 
 *** FIGURE 1 - Double box-plot showing June and December temp. distributions ***
----
+
 ![ian-zukowski](Resources/Fig2_JunData.png)
 
 *** FIGURE 2 - Descriptive Summary of June Data ***
----
+
 ![ian-zukowski](Resources/Fig3_DecData.png)
 
 *** FIGURE 3 - Descriptive Summary of December Data ***
----
+
 
 ## Summary: 
 <!-- Provide a high-level summary of the results and two additional queries that you would perform to gather more weather data for June and December. -->
