@@ -27,38 +27,47 @@ For each of the analyses provided, refer to the underlying Figures to view the d
 
 ![ian-zukowski](Resources/Fig1.png)
 
-** FIGURE 1 - Double box-plot showing June and December temp. distributions**
----------------------------------------------------------------------------------------------------------------------------------------
+*** FIGURE 1 - Double box-plot showing June and December temp. distributions ***
+---
 ![ian-zukowski](Resources/Fig2_JunData.png)
 
-** FIGURE 2 - Descriptive Summary of June Data **
----------------------------------------------------------------------------------------------------------------------------------------
+*** FIGURE 2 - Descriptive Summary of June Data ***
+---
 ![ian-zukowski](Resources/Fig3_DecData.png)
 
-** FIGURE 3 - Descriptive Summary of December Data **
-
+*** FIGURE 3 - Descriptive Summary of December Data ***
+---
 
 ## Summary: 
 <!-- Provide a high-level summary of the results and two additional queries that you would perform to gather more weather data for June and December. -->
+
+### Referencing Precipitation:
+
 While the data included in the two databases is somewhat limited in focus, there are still several avenues that could be explored to determine optimal conditions for the success of the new business. One such avenue would be to identify the average levels of precipitation for each month. This would be easily accomplished using the "prcp" field already included in the "Measurement" database. In the requested deliverables the only data which was queried was the "Measurement.date" and "Measurement.tobs"(observed temperature). It would be simple to add in a third field to that same query to also request the "Measurement.prcp" values, without any need to join in new databases or reformat the regex statement that limited results to specific months.
 ------------------------------------------------------------------------------------------------------------------------------------------
+
+### Referencing Elevation:
 
 Another possible avenue would be to filter results based on location criteria. Of the 7 stations providing measurements, 5 stations are located between 0-33m above sea level, while another 2 stations are located 150 and 300m above sea level. It is still relatively straightforward to filter the data based on this new criteria, although now the query would have to adjust to join in the second "Station" database which contains information on the station locations. To accomplish this using the 'session.query()' method there would need to be a filter indicating the fields on which to join the databases ("filter(Measurement.station==Station.station)") and then a second filter acting like a "where" clause which would limit to elevations below 33m ("filter(Station.elevation>50)"). This would be in addition to the existing regex filter used to limit the query to a specific month ("filter(Measurement.date.like('%-12-%'))").
 
 An example of the above "low elevation" query language for December and the summative data resulting from the query is included below for reader reference:
 ![ian-zukowski](Resources/Fig4_LowElevData.png)
 
-** FIGURE 4 - Descriptive Summary of Low Elevation Data in December **
+*** FIGURE 4 - Descriptive Summary of Low Elevation Data in December ***
 
 As can be seen in the figure above, the temperature data is not significantly changed for December and the precipitation data is marginally changed on the high end. Similar effects are observed for the June data as well.
 ------------------------------------------------------------------------------------------------------------------------------------------
 
+### Referencing Latitude/Longitude:
+
 One additional point to the suggestions above is that it may also be benifical to narrow results to more specific latitude and longitude values (both of which are provided as fields in the "Stations" database). There is also a chance that the topography of the island would impact the temperature and/or precipitation readings, since many of the cities on Oahu lie between two mountain ranges on the east and west sides of the island. For those readers unfamiliar with the island's geography, a picture is included below.
 ![ian-zukowski](Resources/Fig5_OahuTopography.png)
 
-** FIGURE 5 - Image of Oahu's Topography **
+*** FIGURE 5 - Image of Oahu's Topography ***
 
 Unfortunately, without specific guidance from the project investors it would be difficult to determine which stations should be filtered to provide the most relevant weather data in regards to these locations.
 ------------------------------------------------------------------------------------------------------------------------------------------
+
+### Closing Suggestions:
 
 In summation, it appears the business venture will be a sound investment in regards to nature's effects. However it is recommended that further analysis be performed to identify the marketability value of another cold-dessert venue on the island, as it would be joining an over-saturated and well established market. Unfortunately the data provided in this analysis is insufficient to determine any effect of that nature.
